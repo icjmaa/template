@@ -1,0 +1,6 @@
+<div *ngIf="show_log()">
+	<textarea readonly rows="16" style="resize: none;">
+		{{ getLog() }}
+	</textarea>
+	<button type="button" (click)="clearLog()">Limpiar</button>
+</div>

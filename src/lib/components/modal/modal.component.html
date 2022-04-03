@@ -1,0 +1,26 @@
+<div class="modal df jc-center align-center" [ngStyle]="{ display : modal.visible ? 'flex' : 'none'}">
+	<div class="posa w100p h100vh" (click)="modal.execCloseCallback(modal.refComponent)">
+		<!-- Fondo negro para cerrar modal -->
+	</div>
+	<div class="modal-window p2em w480px" style="z-index: 2">
+		<div class="df jc-between align-center mb1d25em" style="border-bottom: 1px solid #DDD;padding-bottom: 1.25em;">
+			<h2 class="m0">{{modal.title}}</h2>
+			<a class="text-black" href="#" (click)="$event.preventDefault()"><i class="fa fa-times" (click)="modal.execCloseCallback(modal.refComponent)"></i></a>
+		</div>
+		<div class="mb1d25em text-center" style="border-bottom: 1px solid #F1F1F1;padding-bottom: 1.25em;">
+			<div *ngIf="modal.type === 1 || modal.type === 2">
+				<p class="mb1d25em"><i class="fa fa-exclamation-triangle fa-4x text-warning m0" aria-hidden="true"></i></p>
+				<p>{{modal.msg}}</p>
+			</div>
+			<div #bodyModal><!-- Dynamic LoadComponent--></div>
+		</div>
+		<div class="df jc-center">
+			<button *ngIf="modal.close_callback.enable" class="inline mh1em" [ngClass]="[ modal.close_callback.class ]" type="button" (click)="modal.execCloseCallback( modal.refComponent )">
+				<i [ngClass]="[ modal.close_callback.icon ]" aria-hidden="true"></i>{{ modal.close_callback.label }}
+			</button>
+			<button *ngIf="modal.callback.enable" class="inline mh1em" [ngClass]="[ modal.callback.class ]" type="button" (click)="modal.execCallback( modal.refComponent )">
+				<i [ngClass]="[ modal.callback.icon ]" aria-hidden="true"></i>{{ modal.callback.label }}
+			</button>
+		</div>
+	</div>
+</div>

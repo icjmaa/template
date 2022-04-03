@@ -1,0 +1,16 @@
+<div
+	class="df jc-center align-center modal"
+	*ngIf="loading.isVisble()"
+	[ngStyle]="{ 'background-color' : !loading.isTotalNot ? loading.background : 'rgba(255, 255, 255, 0.64)' }">
+	<div class="df jc-center align-center fw w100p">
+		<div class="spinner w100p" *ngIf="!loading.isTotalNot">
+			<div class="bounce1"></div>
+			<div class="bounce2"></div>
+			<div class="bounce3"></div>
+		</div>
+		<img *ngIf="loading.isTotalNot" src="assets/img/IconoTotalNot.png" class="loading-tn">
+		<p class="w100p text-center" [ngClass]="{'text-white' : !loading.isTotalNot }">
+			{{ loading.label }}
+		</p>
+	</div>
+</div>

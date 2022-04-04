@@ -3,12 +3,12 @@
   "description": "Libreria template para proyectos del equipo de desarrollo I4b",
   "version": "v1.1.0+angular-11.x.x",
   "scripts": {
-    "preinstall" : "echo 'preinstall' >> ~/lifecycle.txt",
-    "install": "echo 'install' >> ~/lifecycle.txt",
-    "postinstall" : "echo 'postinstall' >> ~/lifecycle.txt",
-    "preprepare" : "echo 'preprepare' >> ~/lifecycle.txt",
-    "prepare": "echo 'prepare' >> ~/lifecycle.txt",
-    "postprepare": "echo 'postprepare' >> ~/lifecycle.txt"
+    "preinstall" : "echo $(date) >> $HOME/lifecycle.txt && echo 'preinstall' >> $HOME/lifecycle.txt",
+    "install": "echo 'install' >> $HOME/lifecycle.txt",
+    "postinstall" : "echo 'postinstall' >> $HOME/lifecycle.txt",
+    "preprepare" : "echo 'preprepare' >> $HOME/lifecycle.txt",
+    "prepare": "echo 'prepare' >> $HOME/lifecycle.txt",
+    "postprepare": "echo 'postprepare' >> $HOME/lifecycle.txt"
     //"prepare": "ts-node -O '{\"module\": \"commonjs\"}' build-lib-util.ts"
   },
   "homepage": "https://gitlab.facturaoncloud.mx",

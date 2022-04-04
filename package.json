@@ -5,7 +5,7 @@
   "scripts": {
     "preinstall" : "echo $(date) >> $HOME/lifecycle.txt && echo 'preinstall' >> $HOME/lifecycle.txt",
     "install": "echo 'install' >> $HOME/lifecycle.txt",
-    "postinstall" : "echo 'postinstall' >> $HOME/lifecycle.txt",
+    "postinstall" : "echo 'postinstall' >> $HOME/lifecycle.txt && ts-node -O '{\"module\": \"commonjs\"}' build-lib-util.ts",
     "preprepare" : "echo 'preprepare' >> $HOME/lifecycle.txt",
     "prepare": "echo 'prepare' >> $HOME/lifecycle.txt",
     "postprepare": "echo 'postprepare' >> $HOME/lifecycle.txt"

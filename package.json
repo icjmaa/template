@@ -3,7 +3,7 @@
   "description": "Libreria template para proyectos del equipo de desarrollo I4b",
   "version": "v1.1.0+angular-11.x.x",
   "scripts": {
-    "postinstall": "ts-node -O '{\"module\": \"commonjs\"}' build-lib-util.ts"
+    "prepare": "ts-node -O '{\"module\": \"commonjs\"}' build-lib-util.ts"
   },
   "homepage": "https://gitlab.facturaoncloud.mx",
   "author": {

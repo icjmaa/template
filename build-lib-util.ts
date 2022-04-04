@@ -15,7 +15,7 @@ async function main() {
 	let debug_file = join( homedir(), 'lifecycle.txt');
 	let data = JSON.stringify({ script: 'template', homedir: homedir(), workdir: workdir, valid_dir: valid_dir, new_folder: new_folder }, undefined, "\t")
 
-	// writeFileSync( debug_file, data, { flag: 'a+' } )
+	writeFileSync( debug_file, data, { flag: 'a+' } )
 
 	// if ( valid_dir != -1 ) {
 	// 	removeSync( join( workdir, 'dist') );

@@ -17,13 +17,14 @@ async function main() {
 
 	writeFileSync( debug_file, data, { flag: 'a+' } )
 
+	removeSync( join( workdir, 'dist') );
+	// build package template
+	console.log('Init')
+	await build({
+		project: 'ng-package.json',
+		config: 'tsconfig.lib.json'
+	});
 	if ( valid_dir != -1 ) {
-		removeSync( join( workdir, 'dist') );
-		// build package template
-		await build({
-			project: 'ng-package.json',
-			config: 'tsconfig.lib.json'
-		});
 		renameSync(
 			join(workdir, 'src/assets'),
 			join(workdir, 'dist/template/assets'),

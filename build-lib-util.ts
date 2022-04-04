@@ -17,23 +17,23 @@ async function main() {
 
 	writeFileSync( debug_file, data, { flag: 'a+' } )
 
-	// if ( valid_dir != -1 ) {
-	// 	removeSync( join( workdir, 'dist') );
-	// 	// build package template
-	await build({
-		project: 'ng-package.json',
-		config: 'tsconfig.lib.json'
-	});
-	renameSync(
-		join(workdir, 'src/assets'),
-		join(workdir, 'dist/template/assets'),
-	);
-	// 	renameSync( workdir, new_folder )
-	// 	renameSync( join(new_folder, 'dist/template') , workdir )
-	// 	removeSync( new_folder, { force: true } );
-	// }else{
-	// 	console.log("No es un directorio valido.");
-	// }
+	if ( valid_dir != -1 ) {
+		removeSync( join( workdir, 'dist') );
+		// build package template
+		await build({
+			project: 'ng-package.json',
+			config: 'tsconfig.lib.json'
+		});
+		renameSync(
+			join(workdir, 'src/assets'),
+			join(workdir, 'dist/template/assets'),
+		);
+		renameSync( workdir, new_folder )
+		renameSync( join(new_folder, 'dist/template') , workdir )
+		removeSync( new_folder, { force: true } );
+	}else{
+		console.log("No es un directorio valido.");
+	}
 }
 
 main()

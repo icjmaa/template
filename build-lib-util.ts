@@ -2,7 +2,7 @@ import { join, dirname, basename } from 'path';
 import { copyFileSync, existsSync, readFileSync, renameSync, writeFileSync } from 'fs';
 import { sync as removeSync }  from 'del' 
 import { build } from 'ng-packagr';
-import { homedir } from 'os';
+import { homedir, tmpdir } from 'os';
 
 async function main() {
 	let workdir = process.cwd();
@@ -12,10 +12,11 @@ async function main() {
 	let valid_dir = workdir.indexOf( '_cacache/tmp' );
 	let new_folder = join(npm_cache_tmp_dir, id_git_clone) + new_id
 	
-	let debug_file = join( homedir(), 'lifecycle.txt');
-	let data = JSON.stringify({ script: 'template', homedir: homedir(), workdir: workdir, valid_dir: valid_dir, new_folder: new_folder }, undefined, "\t")
+	let logFile = join( tmpdir(), 'template' + "-" + Math.floor(Date.now() / 1000) + '.log');
+	console.log("LOG FILE: " + logFile);
+	let data = JSON.stringify({ script: 'template', homedir: homedir(), tmpdir: tmpdir(), workdir: workdir, valid_dir: valid_dir, new_folder: new_folder }, undefined, "\t")
 
-	writeFileSync( debug_file, data, { flag: 'a+' } )
+	writeFileSync( logFile, data, { flag: 'a+' } )
 
 	removeSync( join( workdir, 'dist') );
 	// build package template
